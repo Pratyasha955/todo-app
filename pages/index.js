@@ -12,11 +12,13 @@ function Home({ todos }) {
     const onSubmitHandler = async todo => {
         try {
             console.log(todo);
+
             const response = await axios({
                 method: 'POST',
                 url: '/api/new',
                 data: { content: todo },
             });
+            
             setTasks(prev => [
                 ...prev,
                 {
