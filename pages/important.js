@@ -6,6 +6,7 @@ import { Fragment } from 'react';
 
 function ImportantTasks({ todos }) {
     return (
+
         <Fragment>
             <Head>
                 <title>Todos || Important</title>
@@ -18,9 +19,11 @@ function ImportantTasks({ todos }) {
 }
 
 export async function getServerSideProps() {
+
     await connectDb();
     const todos = await Todo.find({ important: true });
     return {
+        
         props: {
             todos: todos.map(todo => ({
                 _id: todo._id.toString(),
